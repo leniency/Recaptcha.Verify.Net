@@ -8,7 +8,7 @@ Recaptcha.Verify.Net starting from version 2.0.0 supports the following platform
 - .NET Standard 2.1
 - .NET Framework 4.6.2
 - .NET 6
-- .NET 7
+- .NET 10
 
 # Table of Contents
 

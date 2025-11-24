@@ -4,6 +4,7 @@ using Recaptcha.Verify.Net.Attribute;
 using Recaptcha.Verify.Net.Configuration;
 using Recaptcha.Verify.Net.Exceptions;
 using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Recaptcha.Verify.Net.Test.Tests;
@@ -43,7 +44,7 @@ public class AttributeTest : BaseRecaptchaAttributeTest
 
     [Theory]
     [MemberData(nameof(AttributeDataWithoutScore))]
-    public async void VerifyAndCheckAsyncExecuted_WithoutNotSpecifiedScoreInAttribute(RecaptchaAttribute attribute)
+    public async Task VerifyAndCheckAsyncExecuted_WithoutNotSpecifiedScoreInAttribute(RecaptchaAttribute attribute)
     {
         // Arrange
         (var recaptchaService, var verifyWithScoreFromAttribute, var verifyWithoutScoreFromAttribute) = RecaptchaServiceFixture.CreateService();
@@ -60,7 +61,7 @@ public class AttributeTest : BaseRecaptchaAttributeTest
 
     [Theory]
     [MemberData(nameof(AttributeDataWithScore))]
-    public async void VerifyAndCheckAsyncExecuted_WithSpecifiedScoreInAttribute(RecaptchaAttribute attribute)
+    public async Task VerifyAndCheckAsyncExecuted_WithSpecifiedScoreInAttribute(RecaptchaAttribute attribute)
     {
         // Arrange
         (var recaptchaService, var verifyWithScoreFromAttribute, var verifyWithoutScoreFromAttribute) = RecaptchaServiceFixture.CreateService();
@@ -77,7 +78,7 @@ public class AttributeTest : BaseRecaptchaAttributeTest
 
     [Theory]
     [MemberData(nameof(AttributeData))]
-    public async void VerifyAndCheckAsyncExecuted_RecaptchaServiceExceptionThrown(RecaptchaAttribute attribute)
+    public async Task VerifyAndCheckAsyncExecuted_RecaptchaServiceExceptionThrown(RecaptchaAttribute attribute)
     {
         // Arrange
         (var onRecaptchaServiceExceptionMock, var onRecaptchaServiceException) = RecaptchaServiceFixture.CreateOnRecaptchaServiceException();
@@ -116,7 +117,7 @@ public class AttributeTest : BaseRecaptchaAttributeTest
 
     [Theory]
     [MemberData(nameof(AttributeData))]
-    public async void VerifyAndCheckAsyncExecuted_NonServiceExceptionThrown(RecaptchaAttribute attribute)
+    public async Task VerifyAndCheckAsyncExecuted_NonServiceExceptionThrown(RecaptchaAttribute attribute)
     {
         // Arrange
         (var onRecaptchaServiceExceptionMock, var onRecaptchaServiceException) = RecaptchaServiceFixture.CreateOnRecaptchaServiceException();
@@ -155,7 +156,7 @@ public class AttributeTest : BaseRecaptchaAttributeTest
 
     [Theory]
     [MemberData(nameof(AttributeData))]
-    public async void VerifyAndCheckAsyncExecuted_BadResultReturned(RecaptchaAttribute attribute)
+    public async Task VerifyAndCheckAsyncExecuted_BadResultReturned(RecaptchaAttribute attribute)
     {
         // Arrange
         (var onRecaptchaServiceExceptionMock, var onRecaptchaServiceException) = RecaptchaServiceFixture.CreateOnRecaptchaServiceException();
@@ -194,7 +195,7 @@ public class AttributeTest : BaseRecaptchaAttributeTest
 
     [Theory]
     [MemberData(nameof(AttributeData))]
-    public async void VerifyAndCheckAsyncExecuted_Success(RecaptchaAttribute attribute)
+    public async Task VerifyAndCheckAsyncExecuted_Success(RecaptchaAttribute attribute)
     {
         // Arrange
         (var onRecaptchaServiceExceptionMock, var onRecaptchaServiceException) = RecaptchaServiceFixture.CreateOnRecaptchaServiceException();

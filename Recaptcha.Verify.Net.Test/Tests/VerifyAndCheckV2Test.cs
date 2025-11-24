@@ -10,7 +10,7 @@ public class VerifyAndCheckV2Test : BaseRecaptchaServiceTest
 
     [Theory]
     [MemberData(nameof(NoSecretKeyData))]
-    public async void VerifyAndCheck_NoSecretKey(string? secretKey, string? token)
+    public async Task VerifyAndCheck_NoSecretKey(string? secretKey, string? token)
     {
         var recaptchaService = CreateService(secretKey);
         await Assert.ThrowsAsync<SecretKeyNotSpecifiedException>(
@@ -19,7 +19,7 @@ public class VerifyAndCheckV2Test : BaseRecaptchaServiceTest
 
     [Theory]
     [MemberData(nameof(NoResponseTokenData))]
-    public async void VerifyAndCheck_NoResponseToken(string secretKey, string? token)
+    public async Task VerifyAndCheck_NoResponseToken(string secretKey, string? token)
     {
         var recaptchaService = CreateService(secretKey);
         await Assert.ThrowsAsync<EmptyCaptchaAnswerException>(
@@ -30,7 +30,7 @@ public class VerifyAndCheckV2Test : BaseRecaptchaServiceTest
 
     [Theory]
     [MemberData(nameof(InvalidSecretKeyData))]
-    public async void VerifyAndCheck_InvalidSecretKey(string secretKey, ResponseTokenFixture tokenFixture)
+    public async Task VerifyAndCheck_InvalidSecretKey(string secretKey, ResponseTokenFixture tokenFixture)
     {
         var recaptchaService = CreateService(secretKey);
         var response = await recaptchaService.VerifyAndCheckAsync(tokenFixture.Token);
@@ -39,7 +39,7 @@ public class VerifyAndCheckV2Test : BaseRecaptchaServiceTest
 
     [Theory]
     [MemberData(nameof(ValidItemsData))]
-    public async void VerifyAndCheck_ValidSecretKey_ValidToken(string secretKey, ResponseTokenFixture tokenFixture)
+    public async Task VerifyAndCheck_ValidSecretKey_ValidToken(string secretKey, ResponseTokenFixture tokenFixture)
     {
         var recaptchaService = CreateService(secretKey);
         var response = await recaptchaService.VerifyAndCheckAsync(tokenFixture.Token);
@@ -48,7 +48,7 @@ public class VerifyAndCheckV2Test : BaseRecaptchaServiceTest
 
     [Theory]
     [MemberData(nameof(InvalidItemsData))]
-    public async void VerifyAndCheck_ValidSecretKey_InvalidToken(string secretKey, ResponseTokenFixture tokenFixture)
+    public async Task VerifyAndCheck_ValidSecretKey_InvalidToken(string secretKey, ResponseTokenFixture tokenFixture)
     {
         var recaptchaService = CreateService(secretKey);
         var response = await recaptchaService.VerifyAndCheckAsync(tokenFixture.Token);
@@ -58,7 +58,7 @@ public class VerifyAndCheckV2Test : BaseRecaptchaServiceTest
 
     [Theory]
     [MemberData(nameof(InvalidItemsWithUnknownErrorKeyData))]
-    public async void VerifyAndCheck_ValidSecretKey_InvalidToken_UnknownErrorKey(string secretKey, ResponseTokenFixture tokenFixture)
+    public async Task VerifyAndCheck_ValidSecretKey_InvalidToken_UnknownErrorKey(string secretKey, ResponseTokenFixture tokenFixture)
     {
         var recaptchaService = CreateService(secretKey);
         var e = await Assert.ThrowsAsync<UnknownErrorKeyException>(async () =>
