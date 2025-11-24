@@ -21,13 +21,5 @@ namespace Recaptcha.Verify.Net.Exceptions
         {
             Action = action;
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MinScoreNotSpecifiedException"/> class with serialized data.
-        /// </summary>
-        protected MinScoreNotSpecifiedException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-            Action = info.GetString(nameof(Action));
-        }
     }
 }
