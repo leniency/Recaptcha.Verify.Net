@@ -29,12 +29,5 @@ namespace Recaptcha.Verify.Net.Exceptions
         {
             Action = info.GetString(nameof(Action));
         }
-
-        /// <inheritdoc />
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue(nameof(Action), Action);
-            base.GetObjectData(info, context);
-        }
     }
 }

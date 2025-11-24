@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace Recaptcha.Verify.Net.Exceptions
 {
@@ -14,10 +13,5 @@ namespace Recaptcha.Verify.Net.Exceptions
         /// with a specified error message.
         /// </summary>
         public RecaptchaLoggerException(string message) : base(message) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RecaptchaLoggerException"/> class with serialized data.
-        /// </summary>
-        protected RecaptchaLoggerException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
 }

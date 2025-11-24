@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace Recaptcha.Verify.Net.Exceptions
 {
@@ -21,21 +20,6 @@ namespace Recaptcha.Verify.Net.Exceptions
         public UnknownErrorKeyException(string key) : base($"Unknown error key: {key}.")
         {
             Key = key;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnknownErrorKeyException"/> class with serialized data.
-        /// </summary>
-        protected UnknownErrorKeyException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-            Key = info.GetString(nameof(Key));
-        }
-
-        /// <inheritdoc />
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue(nameof(Key), Key);
-            base.GetObjectData(info, context);
         }
     }
 }

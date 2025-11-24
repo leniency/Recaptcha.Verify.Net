@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace Recaptcha.Verify.Net.Exceptions
 {
@@ -13,10 +12,5 @@ namespace Recaptcha.Verify.Net.Exceptions
         /// Initializes a new instance of the <see cref="SecretKeyNotSpecifiedException"/> class.
         /// </summary>
         public SecretKeyNotSpecifiedException() : base("Secret key was not provided.") { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SecretKeyNotSpecifiedException"/> class with serialized data.
-        /// </summary>
-        protected SecretKeyNotSpecifiedException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
 }
